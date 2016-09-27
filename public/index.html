@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="firebaseTest">
+<head>
+    <meta charset="UTF-8">
+    <title>Firebase test</title>
+    <script src="https://www.gstatic.com/firebasejs/3.4.1/firebase.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular.min.js"></script>
+    <script src="https://cdn.firebase.com/libs/angularfire/2.0.2/angularfire.min.js"></script>
+    <script src="app.js"></script>
+    <script src="init.js"></script>
+</head>
+<body>
+<div ng-controller="ChatController">
+    <form ng-submit="addMessage(newMessage)">
+        <label>Message
+            <input type="text" ng-model="newMessage">
+            <button type="submit">Send</button>
+        </label>
+    </form>
+    <ul>
+        <li ng-repeat="msg in messages">{{ msg.content }}<br>sent on <code>{{ msg.sent.TIMESTAMP | date:"MMM d, yyyy hh:mm:ss:sss a" }}</code></li>
+    </ul>
+</div>
+</body>
+</html>
